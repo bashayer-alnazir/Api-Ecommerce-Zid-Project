@@ -15,7 +15,7 @@
         "name": "StoreName",
         "dbType": "string,200",
         "htmlType": "text",
-        "validations": "required|string|max:200|string|max:200",
+        "validations": "required|string|max:200|string|max:200|string|max:200",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -27,7 +27,19 @@
         "name": "ShippingCost",
         "dbType": "integer,false",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "required|integer|integer|integer",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "userId",
+        "dbType": "bigInteger,false,true",
+        "htmlType": null,
+        "validations": "required",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -39,7 +51,7 @@
         "name": "created_at",
         "dbType": "datetime:nullable",
         "htmlType": "date",
-        "validations": "nullable|nullable",
+        "validations": "nullable|nullable|nullable",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -51,7 +63,7 @@
         "name": "updated_at",
         "dbType": "datetime:nullable",
         "htmlType": "date",
-        "validations": "nullable|nullable",
+        "validations": "nullable|nullable|nullable",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -63,7 +75,7 @@
         "name": "deleted_at",
         "dbType": "datetime:nullable",
         "htmlType": "date",
-        "validations": "nullable|nullable",
+        "validations": "nullable|nullable|nullable",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -73,10 +85,14 @@
     },
     {
         "type": "relation",
-        "relation": "1tm,Product,MerchantId"
+        "relation": "mt1,User,userId"
     },
     {
         "type": "relation",
-        "relation": "1tm,User,IsMerchants"
+        "relation": "mt1,User,userId"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Product,MerchantId"
     }
 ]

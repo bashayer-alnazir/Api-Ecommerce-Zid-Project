@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Auth::routes();
 
@@ -25,17 +25,24 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes(['verify' => true]);
 
 
-Route::resource('merchants', 'merchantsController');
 // Auth::routes();
 
 
 
-Route::resource('products', 'productsController');
 
 
 
 
-Route::resource('shoppingCarts', 'shoppingCartController');
+Route::resource('merchants', 'merchantsController');
+
+
+Route::resource('products', 'productController');
 
 
 Route::resource('productTranslations', 'product_translationController');
+
+
+Route::resource('shoppingCarts', 'shopping_cartController');
+
+
+Route::resource('customers', 'customersController');

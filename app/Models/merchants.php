@@ -3,35 +3,40 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class merchants
  * @package App\Models
- * @version June 22, 2022, 10:22 pm UTC
+ * @version June 25, 2022, 6:48 pm UTC
  *
+ * @property \App\Models\User $userid
+ * @property \App\Models\User $userid
  * @property \Illuminate\Database\Eloquent\Collection $products
- * @property \Illuminate\Database\Eloquent\Collection $users
  * @property string $StoreName
  * @property integer $ShippingCost
+ * @property integer $userId
  * @property string|\Carbon\Carbon $created_at
  * @property string|\Carbon\Carbon $updated_at
  * @property string|\Carbon\Carbon $deleted_at
  */
 class merchants extends Model
 {
+    use SoftDeletes;
 
     public $table = 'merchants';
     
     public $timestamps = false;
 
 
+    protected $dates = ['deleted_at'];
 
-    protected $primaryKey = 'Id';
+
 
     public $fillable = [
         'StoreName',
         'ShippingCost',
-         'UserId',
+        'userId',
         'created_at',
         'updated_at',
         'deleted_at'
@@ -46,7 +51,7 @@ class merchants extends Model
         'Id' => 'integer',
         'StoreName' => 'string',
         'ShippingCost' => 'integer',
-        'UserId' => 'integer',
+        'userId' => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
         'deleted_at' => 'datetime'
@@ -60,11 +65,24 @@ class merchants extends Model
     public static $rules = [
         'StoreName' => 'required|string|max:200',
         'ShippingCost' => 'required|integer',
-        'UserId' => 'required|integer',
+        'userId' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function userid()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'userId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -72,13 +90,5 @@ class merchants extends Model
     public function products()
     {
         return $this->hasMany(\App\Models\Product::class, 'MerchantId');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function userid()
-    {
-        return $this->belongsTo(\App\Models\User::class, 'UserId');
     }
 }

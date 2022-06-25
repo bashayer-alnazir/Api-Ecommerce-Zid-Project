@@ -2,28 +2,24 @@
 
 namespace App\Repositories;
 
-use App\Models\products;
+use App\Models\shopping_cart;
 use App\Repositories\BaseRepository;
 
 /**
- * Class productsRepository
+ * Class shopping_cartRepository
  * @package App\Repositories
- * @version June 22, 2022, 10:24 pm UTC
+ * @version June 25, 2022, 7:00 pm UTC
 */
 
-class productsRepository extends BaseRepository
+class shopping_cartRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'Price',
-        'Vat',
-        'IsTaxable',
-        'MerchantId',
-        'created_at',
-        'updated_at',
-        'deleted_at'
+        'ProductId',
+        'UserId',
+        'Quantity'
     ];
 
     /**
@@ -41,6 +37,6 @@ class productsRepository extends BaseRepository
      **/
     public function model()
     {
-        return products::class;
+        return shopping_cart::class;
     }
 }

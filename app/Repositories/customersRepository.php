@@ -2,24 +2,29 @@
 
 namespace App\Repositories;
 
-use App\Models\shoppingCart;
+use App\Models\customers;
 use App\Repositories\BaseRepository;
 
 /**
- * Class shoppingCartRepository
+ * Class customersRepository
  * @package App\Repositories
- * @version June 22, 2022, 10:28 pm UTC
+ * @version June 25, 2022, 7:07 pm UTC
 */
 
-class shoppingCartRepository extends BaseRepository
+class customersRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'ProductId',
-        'UserId',
-        'Quantity'
+        'name',
+        'email',
+        'email_verified_at',
+        'password',
+        'IsMerchants',
+        'remember_token',
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -37,6 +42,6 @@ class shoppingCartRepository extends BaseRepository
      **/
     public function model()
     {
-        return shoppingCart::class;
+        return customers::class;
     }
 }

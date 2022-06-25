@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateshoppingCartRequest;
-use App\Http\Requests\UpdateshoppingCartRequest;
-use App\Repositories\shoppingCartRepository;
+use App\Http\Requests\Createshopping_cartRequest;
+use App\Http\Requests\Updateshopping_cartRequest;
+use App\Repositories\shopping_cartRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class shoppingCartController extends AppBaseController
+class shopping_cartController extends AppBaseController
 {
-    /** @var  shoppingCartRepository */
+    /** @var  shopping_cartRepository */
     private $shoppingCartRepository;
 
-    public function __construct(shoppingCartRepository $shoppingCartRepo)
+    public function __construct(shopping_cartRepository $shoppingCartRepo)
     {
         $this->shoppingCartRepository = $shoppingCartRepo;
     }
 
     /**
-     * Display a listing of the shoppingCart.
+     * Display a listing of the shopping_cart.
      *
      * @param Request $request
      *
@@ -36,7 +36,7 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new shoppingCart.
+     * Show the form for creating a new shopping_cart.
      *
      * @return Response
      */
@@ -46,13 +46,13 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Store a newly created shoppingCart in storage.
+     * Store a newly created shopping_cart in storage.
      *
-     * @param CreateshoppingCartRequest $request
+     * @param Createshopping_cartRequest $request
      *
      * @return Response
      */
-    public function store(CreateshoppingCartRequest $request)
+    public function store(Createshopping_cartRequest $request)
     {
         $input = $request->all();
 
@@ -64,7 +64,7 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Display the specified shoppingCart.
+     * Display the specified shopping_cart.
      *
      * @param int $id
      *
@@ -84,7 +84,7 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified shoppingCart.
+     * Show the form for editing the specified shopping_cart.
      *
      * @param int $id
      *
@@ -104,14 +104,14 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Update the specified shoppingCart in storage.
+     * Update the specified shopping_cart in storage.
      *
      * @param int $id
-     * @param UpdateshoppingCartRequest $request
+     * @param Updateshopping_cartRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateshoppingCartRequest $request)
+    public function update($id, Updateshopping_cartRequest $request)
     {
         $shoppingCart = $this->shoppingCartRepository->find($id);
 
@@ -129,7 +129,7 @@ class shoppingCartController extends AppBaseController
     }
 
     /**
-     * Remove the specified shoppingCart from storage.
+     * Remove the specified shopping_cart from storage.
      *
      * @param int $id
      *

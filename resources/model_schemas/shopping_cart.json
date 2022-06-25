@@ -15,7 +15,7 @@
         "name": "ProductId",
         "dbType": "integer,false",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "required|integer|integer|integer",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -25,9 +25,9 @@
     },
     {
         "name": "UserId",
-        "dbType": "integer,false",
+        "dbType": "bigInteger,false,true",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "required",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -39,7 +39,7 @@
         "name": "Quantity",
         "dbType": "integer,false",
         "htmlType": null,
-        "validations": "required|integer|integer",
+        "validations": "required|integer|integer|integer",
         "searchable": true,
         "fillable": true,
         "primary": false,
@@ -49,10 +49,10 @@
     },
     {
         "type": "relation",
-        "relation": "mt1,User,UserId"
+        "relation": "mt1,Product,ProductId"
     },
     {
         "type": "relation",
-        "relation": "mt1,Product,ProductId"
+        "relation": "mt1,User,UserId"
     }
 ]

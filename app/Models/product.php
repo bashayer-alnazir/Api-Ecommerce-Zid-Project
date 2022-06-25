@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class products
+ * Class product
  * @package App\Models
- * @version June 22, 2022, 10:24 pm UTC
+ * @version June 25, 2022, 6:58 pm UTC
  *
  * @property \App\Models\Merchant $merchantid
- * @property \Illuminate\Database\Eloquent\Collection $producttranslations
- * @property \Illuminate\Database\Eloquent\Collection $shoppingcarts
+ * @property \Illuminate\Database\Eloquent\Collection $productTranslations
+ * @property \Illuminate\Database\Eloquent\Collection $shoppingCarts
  * @property number $Price
  * @property number $Vat
  * @property boolean $IsTaxable
@@ -20,13 +21,16 @@ use Eloquent as Model;
  * @property string|\Carbon\Carbon $updated_at
  * @property string|\Carbon\Carbon $deleted_at
  */
-class products extends Model
+class product extends Model
 {
+    use SoftDeletes;
 
     public $table = 'product';
     
     public $timestamps = false;
 
+
+    protected $dates = ['deleted_at'];
 
 
     protected $primaryKey = 'Id';
@@ -83,16 +87,16 @@ class products extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function producttranslations()
+    public function productTranslations()
     {
-        return $this->hasMany(\App\Models\Producttranslation::class, 'ProductId');
+        return $this->hasMany(\App\Models\ProductTranslation::class, 'ProductId');
     }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      **/
-    public function shoppingcarts()
+    public function shoppingCarts()
     {
-        return $this->hasMany(\App\Models\Shoppingcart::class, 'ProductId');
+        return $this->hasMany(\App\Models\ShoppingCart::class, 'ProductId');
     }
 }

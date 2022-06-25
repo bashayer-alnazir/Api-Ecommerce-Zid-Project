@@ -22,3 +22,9 @@
     <p>{{ $productTranslation->Language }}</p>
 </div>
 
+<!-- Deleted At Field -->
+<div class="col-sm-12">
+    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    <p>{{ $productTranslation->deleted_at }}</p>
+</div>
+

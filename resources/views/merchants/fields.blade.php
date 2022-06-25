@@ -1,7 +1,7 @@
 <!-- Storename Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('StoreName', 'Storename:') !!}
-    {!! Form::text('StoreName', null, ['class' => 'form-control','maxlength' => 200,'maxlength' => 200]) !!}
+    {!! Form::text('StoreName', null, ['class' => 'form-control','maxlength' => 200,'maxlength' => 200,'maxlength' => 200]) !!}
 </div>
 
 <!-- Shippingcost Field -->
@@ -10,9 +10,10 @@
     {!! Form::number('ShippingCost', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- Userid Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('UserId', 'Userid:') !!}
-    {!! Form::number('UserId', null, ['class' => 'form-control']) !!}
+    {!! Form::label('userId', 'Userid:') !!}
+    {!! Form::number('userId', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Created At Field -->

@@ -10,6 +10,12 @@
     <p>{{ $merchants->ShippingCost }}</p>
 </div>
 
+<!-- Userid Field -->
+<div class="col-sm-12">
+    {!! Form::label('userId', 'Userid:') !!}
+    <p>{{ $merchants->userId }}</p>
+</div>
+
 <!-- Created At Field -->
 <div class="col-sm-12">
     {!! Form::label('created_at', 'Created At:') !!}

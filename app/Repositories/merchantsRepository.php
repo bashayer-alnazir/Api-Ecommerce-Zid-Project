@@ -8,7 +8,7 @@ use App\Repositories\BaseRepository;
 /**
  * Class merchantsRepository
  * @package App\Repositories
- * @version June 22, 2022, 10:22 pm UTC
+ * @version June 25, 2022, 6:48 pm UTC
 */
 
 class merchantsRepository extends BaseRepository
@@ -19,7 +19,7 @@ class merchantsRepository extends BaseRepository
     protected $fieldSearchable = [
         'StoreName',
         'ShippingCost',
-        'UserId',
+        'userId',
         'created_at',
         'updated_at',
         'deleted_at'

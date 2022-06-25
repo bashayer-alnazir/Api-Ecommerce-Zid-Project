@@ -3,25 +3,29 @@
 namespace App\Models;
 
 use Eloquent as Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class shoppingCart
+ * Class shopping_cart
  * @package App\Models
- * @version June 22, 2022, 10:28 pm UTC
+ * @version June 25, 2022, 7:00 pm UTC
  *
- * @property \App\Models\User $userid
  * @property \App\Models\Product $productid
+ * @property \App\Models\User $userid
  * @property integer $ProductId
  * @property integer $UserId
  * @property integer $Quantity
  */
-class shoppingCart extends Model
+class shopping_cart extends Model
 {
+    use SoftDeletes;
 
     public $table = 'shopping_cart';
     
     public $timestamps = false;
 
+
+    protected $dates = ['deleted_at'];
 
 
     protected $primaryKey = 'Id';
@@ -51,17 +55,9 @@ class shoppingCart extends Model
      */
     public static $rules = [
         'ProductId' => 'required|integer',
-        'UserId' => 'required|integer',
+        'UserId' => 'required',
         'Quantity' => 'required|integer'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     **/
-    public function userid()
-    {
-        return $this->belongsTo(\App\Models\User::class, 'UserId');
-    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -69,5 +65,13 @@ class shoppingCart extends Model
     public function productid()
     {
         return $this->belongsTo(\App\Models\Product::class, 'ProductId');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function userid()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'UserId');
     }
 }

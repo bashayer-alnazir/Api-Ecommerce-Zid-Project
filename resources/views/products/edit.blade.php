@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Products</h1>
+                    <h1>Edit Product</h1>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 
         <div class="card">
 
-            {!! Form::model($products, ['route' => ['products.update', $products->Id], 'method' => 'patch']) !!}
+            {!! Form::model($product, ['route' => ['products.update', $product->Id], 'method' => 'patch']) !!}
 
             <div class="card-body">
                 <div class="row">

@@ -4,6 +4,7 @@
         <tr>
             <th>Storename</th>
         <th>Shippingcost</th>
+        <th>Userid</th>
         <th>Created At</th>
         <th>Updated At</th>
         <th>Deleted At</th>
@@ -15,6 +16,7 @@
             <tr>
                 <td>{{ $merchants->StoreName }}</td>
             <td>{{ $merchants->ShippingCost }}</td>
+            <td>{{ $merchants->userId }}</td>
             <td>{{ $merchants->created_at }}</td>
             <td>{{ $merchants->updated_at }}</td>
             <td>{{ $merchants->deleted_at }}</td>

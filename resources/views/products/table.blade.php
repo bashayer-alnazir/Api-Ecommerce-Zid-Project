@@ -13,23 +13,23 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($products as $products)
+        @foreach($products as $product)
             <tr>
-                <td>{{ $products->Price }}</td>
-            <td>{{ $products->Vat }}</td>
-            <td>{{ $products->IsTaxable }}</td>
-            <td>{{ $products->MerchantId }}</td>
-            <td>{{ $products->created_at }}</td>
-            <td>{{ $products->updated_at }}</td>
-            <td>{{ $products->deleted_at }}</td>
+                <td>{{ $product->Price }}</td>
+            <td>{{ $product->Vat }}</td>
+            <td>{{ $product->IsTaxable }}</td>
+            <td>{{ $product->MerchantId }}</td>
+            <td>{{ $product->created_at }}</td>
+            <td>{{ $product->updated_at }}</td>
+            <td>{{ $product->deleted_at }}</td>
                 <td width="120">
-                    {!! Form::open(['route' => ['products.destroy', $products->Id], 'method' => 'delete']) !!}
+                    {!! Form::open(['route' => ['products.destroy', $product->Id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
-                        <a href="{{ route('products.show', [$products->Id]) }}"
+                        <a href="{{ route('products.show', [$product->Id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-eye"></i>
                         </a>
-                        <a href="{{ route('products.edit', [$products->Id]) }}"
+                        <a href="{{ route('products.edit', [$product->Id]) }}"
                            class='btn btn-default btn-xs'>
                             <i class="far fa-edit"></i>
                         </a>

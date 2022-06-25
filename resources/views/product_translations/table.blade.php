@@ -6,6 +6,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Language</th>
+        <th>Deleted At</th>
             <th colspan="3">Action</th>
         </tr>
         </thead>
@@ -16,6 +17,7 @@
             <td>{{ $productTranslation->Name }}</td>
             <td>{{ $productTranslation->Description }}</td>
             <td>{{ $productTranslation->Language }}</td>
+            <td>{{ $productTranslation->deleted_at }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['productTranslations.destroy', $productTranslation->Id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

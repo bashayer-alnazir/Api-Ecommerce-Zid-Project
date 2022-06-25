@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class product_translation
  * @package App\Models
- * @version June 24, 2022, 9:19 pm UTC
+ * @version June 25, 2022, 7:00 pm UTC
  *
  * @property \App\Models\Product $productid
  * @property integer $ProductId
  * @property string $Name
  * @property string $Description
  * @property string $Language
+ * @property string|\Carbon\Carbon $deleted_at
  */
 class product_translation extends Model
 {
@@ -34,7 +35,8 @@ class product_translation extends Model
         'ProductId',
         'Name',
         'Description',
-        'Language'
+        'Language',
+        'deleted_at'
     ];
 
     /**
@@ -47,7 +49,8 @@ class product_translation extends Model
         'ProductId' => 'integer',
         'Name' => 'string',
         'Description' => 'string',
-        'Language' => 'string'
+        'Language' => 'string',
+        'deleted_at' => 'datetime'
     ];
 
     /**
@@ -59,7 +62,8 @@ class product_translation extends Model
         'ProductId' => 'required|integer',
         'Name' => 'required|string|max:200',
         'Description' => 'required|string|max:200',
-        'Language' => 'required|string|max:100'
+        'Language' => 'required|string|max:100',
+        'deleted_at' => 'required'
     ];
 
     /**

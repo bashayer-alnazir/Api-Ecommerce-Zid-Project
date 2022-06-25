@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\shoppingCart;
+use App\Models\customers;
 
-class CreateshoppingCartRequest extends FormRequest
+class CreatecustomersRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreateshoppingCartRequest extends FormRequest
      */
     public function rules()
     {
-        return shoppingCart::$rules;
+        return customers::$rules;
     }
 }

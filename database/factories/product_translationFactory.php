@@ -11,6 +11,7 @@ $factory->define(product_translation::class, function (Faker $faker) {
         'ProductId' => $faker->randomDigitNotNull,
         'Name' => $faker->word,
         'Description' => $faker->word,
-        'Language' => $faker->word
+        'Language' => $faker->word,
+        'deleted_at' => $faker->date('Y-m-d H:i:s')
     ];
 });
