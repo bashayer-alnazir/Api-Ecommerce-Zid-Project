@@ -12,6 +12,7 @@ use App\Repositories\BaseRepository;
 
 class cartRepository extends BaseRepository
 {
+
     /**
      * @var array
      */
@@ -42,16 +43,34 @@ class cartRepository extends BaseRepository
 
     public function getByUserId($Id,$lang)
     {
-    //   $carts=  $this->model->get();   
-      //  if($cart)
-        $cart =  $this->model->select("shopping_cart.id","shopping_cart.Quantity" ,"product.price", "product_translation.name")
-        ->join('product', 'shopping_cart.productid', '=', 'product.Id')
-        ->join('product_translation', 'product.Id', '=', 'product_translation.ProductId')
+        $cart =  $this->model
+        ->with('products.productTranslations')
         ->where("shopping_cart.userid", "=", $Id)
-        ->where("product_translation.language", "=",$lang)
         ->get(); 
-         //   if($carts)
-        return $cart;
+       // dd($cart->ToArray());
+    return $this->CartFactory($cart,$lang);
+    }
 
+    public function CartFactory($cart,$lang)
+    {
+        $arr=array() ;
+        foreach($cart as $car)
+        {
+           
+            $vat=1;
+           // dd($car["products"]["IsTaxable"]);
+            if($car["products"]["Is_Include_Vat"]==false)
+            {
+            $vat = $car["products"]["Vat"] += 1 ;
+
+            }
+
+            $productName = $car["products.productTranslations"];
+             // get product by lang and add it to list
+              //  dd($productName);
+           array_push($arr,["id"=>$car["Id"],"priceIncVat"=>$vat*$car["products"]["Price"],"ProductName"=>$productName ]);
+           
+        }
+        return $arr;
     }
 }

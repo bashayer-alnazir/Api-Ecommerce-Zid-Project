@@ -13,6 +13,7 @@ use App\Repositories\BaseRepository;
 
 class shopping_cartRepository extends BaseRepository
 {
+    
     /**
      * @var array
      */
@@ -38,5 +39,30 @@ class shopping_cartRepository extends BaseRepository
     public function model()
     {
         return shopping_cart::class;
+    }
+
+    public function addToCart($input)
+    {
+        $Id =  $input->input('UserId');
+    //    $ProductId = $input->input('ProductId');
+        $product = Product::findOrFail($Id);
+          
+        $cart = session()->get('cart', []);
+  
+        if(isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "ProductId" => $product->id,
+                "quantity" => 1,
+                "price" => $product->price,
+            ];
+        }
+    }
+
+    public function FindProduct($ProductId)
+    {
+      return  $this->model->where("ProductId",$ProductId)->get()->first(); 
+          //  dd()     
     }
 }

@@ -52,9 +52,9 @@ class product extends Model
      */
     protected $casts = [
         'Id' => 'integer',
-        'Price' => 'decimal:0',
-        'Vat' => 'decimal:0',
-        'IsTaxable' => 'boolean',
+        'Price' => 'double',
+        'Vat' => 'double',
+        'Is_Include_Vat' => 'boolean',
         'MerchantId' => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
@@ -69,7 +69,7 @@ class product extends Model
     public static $rules = [
         'Price' => 'required|numeric',
         'Vat' => 'required|numeric',
-        'IsTaxable' => 'required|boolean',
+        'Is_Include_Vat' => 'required|boolean',
         'MerchantId' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',

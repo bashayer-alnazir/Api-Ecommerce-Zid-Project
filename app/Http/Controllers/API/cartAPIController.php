@@ -83,7 +83,7 @@ class cartAPIController extends AppBaseController
             return $this->sendError('Cart not found');
         }
 
-        return $this->sendResponse($cart->toArray(), 'Cart retrieved successfully');
+        return $this->sendResponse($cart, 'Cart retrieved successfully');
     }
 
     /**

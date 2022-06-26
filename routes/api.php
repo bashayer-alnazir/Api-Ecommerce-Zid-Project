@@ -32,7 +32,7 @@ Route::resource('products', 'productAPIController');
 Route::resource('producttranslations', 'product_translationAPIController');
 
 
-Route::resource('shopping_carts', 'shopping_cartAPIController');
+Route::resource('shoppingcarts', 'shopping_cartAPIController');
 
 
 Route::resource('customers', 'customersAPIController');

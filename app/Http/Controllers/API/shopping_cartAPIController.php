@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\API\Createshopping_cartAPIRequest;
 use App\Http\Requests\API\Updateshopping_cartAPIRequest;
 use App\Models\shopping_cart;
+use App\Models\product;
 use App\Repositories\shopping_cartRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -53,11 +54,24 @@ class shopping_cartAPIController extends AppBaseController
      */
     public function store(Createshopping_cartAPIRequest $request)
     {
-        $input = $request->all();
+            $Id =  $request->input('UserId');
 
-        $shoppingCart = $this->shoppingCartRepository->create($input);
+            $ProductId = $request->input('ProductId');
+            $Qty = $request->input('Quantity');
+            $findshoppingCart = $this->shoppingCartRepository->FindProduct($ProductId);
+            if(isset($findshoppingCart)) {
+                $findshoppingCart['Quantity'] +=$Qty;
 
-        return $this->sendResponse($shoppingCart->toArray(), 'Shopping Cart saved successfully');
+            $shoppingCarts = $this->shoppingCartRepository->update($findshoppingCart->toarray(),$findshoppingCart['Id']);
+             return $this->sendResponse($shoppingCarts,'found');
+            } 
+            else {
+                $input = $request->all();
+                $NewshoppingCarts = $this->shoppingCartRepository->create($input);
+                return $this->sendResponse($NewshoppingCarts,'new found');
+
+            }
+        return $this->sendResponse($cart->toArray(), 'Shopping Cart saved successfully');
     }
 
     /**
@@ -100,6 +114,7 @@ class shopping_cartAPIController extends AppBaseController
             return $this->sendError('Shopping Cart not found');
         }
 
+        
         $shoppingCart = $this->shoppingCartRepository->update($input, $id);
 
         return $this->sendResponse($shoppingCart->toArray(), 'shopping_cart updated successfully');
