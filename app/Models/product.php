@@ -89,7 +89,7 @@ class product extends Model
      **/
     public function productTranslations()
     {
-        return $this->hasMany(\App\Models\ProductTranslation::class, 'ProductId');
+        return $this->hasMany(\App\Models\product_translation::class, 'ProductId');
     }
 
     /**

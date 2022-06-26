@@ -36,3 +36,6 @@ Route::resource('shopping_carts', 'shopping_cartAPIController');
 
 
 Route::resource('customers', 'customersAPIController');
+
+
+Route::resource('carts', 'cartAPIController');

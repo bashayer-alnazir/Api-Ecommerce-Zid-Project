@@ -64,7 +64,7 @@ class merchants extends Model
      */
     public static $rules = [
         'StoreName' => 'required|string|max:200',
-        'ShippingCost' => 'required|integer',
+        'ShippingCost' => 'integer',
         'userId' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
