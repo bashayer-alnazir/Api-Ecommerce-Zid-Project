@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property \Illuminate\Database\Eloquent\Collection $shoppingCarts
  * @property number $Price
  * @property number $Vat
- * @property boolean $IsTaxable
+ * @property boolean $Is_Include_Vat
  * @property integer $MerchantId
  * @property string|\Carbon\Carbon $created_at
  * @property string|\Carbon\Carbon $updated_at
@@ -38,7 +38,7 @@ class product extends Model
     public $fillable = [
         'Price',
         'Vat',
-        'IsTaxable',
+        'Is_Include_Vat',
         'MerchantId',
         'created_at',
         'updated_at',
@@ -81,7 +81,7 @@ class product extends Model
      **/
     public function merchantid()
     {
-        return $this->belongsTo(\App\Models\Merchant::class, 'MerchantId');
+        return $this->belongsTo(\App\Models\Merchants::class, 'MerchantId');
     }
 
     /**

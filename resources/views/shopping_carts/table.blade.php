@@ -3,7 +3,7 @@
         <thead>
         <tr>
             <th>Productid</th>
-        <th>Userid</th>
+        <th>User</th>
         <th>Quantity</th>
             <th colspan="3">Action</th>
         </tr>
@@ -12,7 +12,7 @@
         @foreach($shoppingCarts as $shoppingCart)
             <tr>
                 <td>{{ $shoppingCart->ProductId }}</td>
-            <td>{{ $shoppingCart->UserId }}</td>
+            <td>{{ $shoppingCart->userid->name }}</td>
             <td>{{ $shoppingCart->Quantity }}</td>
                 <td width="120">
                     {!! Form::open(['route' => ['shoppingCarts.destroy', $shoppingCart->Id], 'method' => 'delete']) !!}

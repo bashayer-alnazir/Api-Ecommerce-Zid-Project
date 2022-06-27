@@ -2,9 +2,9 @@
     <table class="table" id="merchants-table">
         <thead>
         <tr>
-            <th>Storename</th>
-        <th>Shippingcost</th>
-        <th>Userid</th>
+            <th>Store name</th>
+        <th>Shipping cost</th>
+        <th>User Name</th>
         <th>Created At</th>
         <th>Updated At</th>
         <th>Deleted At</th>
@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ $merchants->StoreName }}</td>
             <td>{{ $merchants->ShippingCost }}</td>
-            <td>{{ $merchants->userId }}</td>
+            <td>{{ $merchants->userid->name }}</td>
             <td>{{ $merchants->created_at }}</td>
             <td>{{ $merchants->updated_at }}</td>
             <td>{{ $merchants->deleted_at }}</td>

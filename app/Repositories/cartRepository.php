@@ -47,30 +47,43 @@ class cartRepository extends BaseRepository
         ->with('products.productTranslations')
         ->where("shopping_cart.userid", "=", $Id)
         ->get(); 
-       // dd($cart->ToArray());
+        //dd($cart->ToArray());
     return $this->CartFactory($cart,$lang);
     }
 
     public function CartFactory($cart,$lang)
     {
+        $total = 0 ;
         $arr=array() ;
         foreach($cart as $car)
         {
-           
+           $productLanguage;
             $vat=1;
-           // dd($car["products"]["IsTaxable"]);
             if($car["products"]["Is_Include_Vat"]==false)
-            {
+                {
             $vat = $car["products"]["Vat"] += 1 ;
 
-            }
-
-            $productName = $car["products.productTranslations"];
+                }
+             $productName= $this->Translate($car["products"]["productTranslations"]->ToArray(),$lang);
+                
+            $productInVat = $vat*$car["products"]["Price"];
+            $total += $productInVat* $car["Quantity"];
              // get product by lang and add it to list
-              //  dd($productName);
-           array_push($arr,["id"=>$car["Id"],"priceIncVat"=>$vat*$car["products"]["Price"],"ProductName"=>$productName ]);
-           
+           array_push($arr,["id"=>$car["Id"],"priceIncVat"=>$productInVat,"Quantity"=>$car["Quantity"],
+            "ProductName"=>$productName]);
         }
-        return $arr;
+        return ["Total"=>$total,"Cart"=> $arr];
+    }
+
+    public function Translate($productTranslations,$local)
+    {
+        foreach($productTranslations as $ProductTranslate)
+        {
+            if ($ProductTranslate["Language"]==$local) {
+                return $ProductTranslate["Name"];
+            }
+            $productLanguage = $ProductTranslate["Language"];
+        }
+        return "No Translatoin Found";
     }
 }

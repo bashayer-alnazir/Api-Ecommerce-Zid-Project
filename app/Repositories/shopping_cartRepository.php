@@ -62,7 +62,6 @@ class shopping_cartRepository extends BaseRepository
 
     public function FindProduct($ProductId)
     {
-      return  $this->model->where("ProductId",$ProductId)->get()->first(); 
-          //  dd()     
+      return  $this->model->where("ProductId",$ProductId)->get()->first();  
     }
 }

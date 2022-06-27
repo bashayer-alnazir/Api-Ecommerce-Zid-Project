@@ -19,7 +19,7 @@ class productRepository extends BaseRepository
     protected $fieldSearchable = [
         'Price',
         'Vat',
-        'IsTaxable',
+        'Is_Include_Vat',
         'MerchantId',
         'created_at',
         'updated_at',

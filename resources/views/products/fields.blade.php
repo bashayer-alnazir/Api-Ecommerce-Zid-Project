@@ -10,12 +10,12 @@
     {!! Form::number('Vat', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Istaxable Field -->
+<!-- Is_Include_Vat Field -->
 <div class="form-group col-sm-6">
     <div class="form-check">
-        {!! Form::hidden('IsTaxable', 0, ['class' => 'form-check-input']) !!}
-        {!! Form::checkbox('IsTaxable', '1', null, ['class' => 'form-check-input']) !!}
-        {!! Form::label('IsTaxable', 'Istaxable', ['class' => 'form-check-label']) !!}
+        {!! Form::hidden('Is_Include_Vat', 0, ['class' => 'form-check-input']) !!}
+        {!! Form::checkbox('Is_Include_Vat', '1', null, ['class' => 'form-check-input']) !!}
+        {!! Form::label('Is_Include_Vat', 'Is_Include_Vat', ['class' => 'form-check-label']) !!}
     </div>
 </div>
 

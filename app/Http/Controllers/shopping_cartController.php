@@ -30,7 +30,6 @@ class shopping_cartController extends AppBaseController
     public function index(Request $request)
     {
         $shoppingCarts = $this->shoppingCartRepository->all();
-
         return view('shopping_carts.index')
             ->with('shoppingCarts', $shoppingCarts);
     }

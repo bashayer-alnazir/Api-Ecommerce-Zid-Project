@@ -72,6 +72,6 @@ class shopping_cart extends Model
      **/
     public function userid()
     {
-        return $this->belongsTo(\App\Models\User::class, 'UserId');
+        return $this->belongsTo(\App\User::class, 'UserId');
     }
 }

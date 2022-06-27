@@ -76,7 +76,7 @@ class merchants extends Model
      **/
     public function userid()
     {
-        return $this->belongsTo(\App\Models\User::class, 'userId');
+        return $this->belongsTo(\App\User::class, 'userId');
     }
 
     /**

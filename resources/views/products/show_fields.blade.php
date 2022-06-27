@@ -10,10 +10,10 @@
     <p>{{ $product->Vat }}</p>
 </div>
 
-<!-- Istaxable Field -->
+<!-- Is_Include_Vat Field -->
 <div class="col-sm-12">
-    {!! Form::label('IsTaxable', 'Istaxable:') !!}
-    <p>{{ $product->IsTaxable }}</p>
+    {!! Form::label('Is_Include_Vat', 'Is_Include_Vat:') !!}
+    <p>{{ $product->Is_Include_Vat }}</p>
 </div>
 
 <!-- Merchantid Field -->

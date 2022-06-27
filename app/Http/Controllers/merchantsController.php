@@ -7,6 +7,7 @@ use App\Http\Requests\UpdatemerchantsRequest;
 use App\Repositories\merchantsRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Http\User;
 use Flash;
 use Response;
 

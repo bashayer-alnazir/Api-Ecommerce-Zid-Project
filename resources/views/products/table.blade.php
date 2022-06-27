@@ -4,8 +4,8 @@
         <tr>
             <th>Price</th>
         <th>Vat</th>
-        <th>Istaxable</th>
-        <th>Merchantid</th>
+        <th>Is Include Vat?</th>
+        <th>Store Name</th>
         <th>Created At</th>
         <th>Updated At</th>
         <th>Deleted At</th>
@@ -17,8 +17,8 @@
             <tr>
                 <td>{{ $product->Price }}</td>
             <td>{{ $product->Vat }}</td>
-            <td>{{ $product->IsTaxable }}</td>
-            <td>{{ $product->MerchantId }}</td>
+            <td>{{ $product->Is_Include_Vat }}</td>
+            <td>{{ $product->merchantid->StoreName }}</td>
             <td>{{ $product->created_at }}</td>
             <td>{{ $product->updated_at }}</td>
             <td>{{ $product->deleted_at }}</td>

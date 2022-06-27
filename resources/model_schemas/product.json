@@ -36,7 +36,7 @@
         "inView": true
     },
     {
-        "name": "IsTaxable",
+        "name": "Is_Include_Vat",
         "dbType": "boolean",
         "htmlType": "checkbox,1",
         "validations": "required|boolean|boolean|boolean",

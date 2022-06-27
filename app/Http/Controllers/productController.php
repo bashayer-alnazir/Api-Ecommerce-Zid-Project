@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateproductRequest;
 use App\Repositories\productRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Merchants;
 use Flash;
 use Response;
 

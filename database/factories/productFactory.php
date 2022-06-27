@@ -10,7 +10,7 @@ $factory->define(product::class, function (Faker $faker) {
     return [
         'Price' => $faker->word,
         'Vat' => $faker->word,
-        'IsTaxable' => $faker->word,
+        'Is_Include_Vat' => $faker->word,
         'MerchantId' => $faker->randomDigitNotNull,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s'),

@@ -2,7 +2,7 @@
     <table class="table" id="productTranslations-table">
         <thead>
         <tr>
-            <th>Productid</th>
+            <th>Product Id</th>
         <th>Name</th>
         <th>Description</th>
         <th>Language</th>
