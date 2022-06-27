@@ -57,12 +57,10 @@ class cartRepository extends BaseRepository
         $arr=array() ;
         foreach($cart as $car)
         {
-           $productLanguage;
             $vat=1;
             if($car["products"]["Is_Include_Vat"]==false)
                 {
             $vat = $car["products"]["Vat"] += 1 ;
-
                 }
              $productName= $this->Translate($car["products"]["productTranslations"]->ToArray(),$lang);
                 

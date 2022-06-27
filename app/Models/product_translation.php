@@ -63,7 +63,7 @@ class product_translation extends Model
         'Name' => 'required|string|max:200',
         'Description' => 'required|string|max:200',
         'Language' => 'required|string|max:100',
-        'deleted_at' => 'required'
+       // 'deleted_at' => 'required'
     ];
 
     /**
